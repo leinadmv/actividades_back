@@ -1,0 +1,36 @@
+package com.example.demo.controllers;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.models.ActividadModel;
+import com.example.demo.services.ActividadService;
+
+@RestController
+@RequestMapping("/actividades")
+public class ActividadController {
+
+    @Autowired
+    ActividadService actividadService;
+
+    @GetMapping()
+    public ArrayList<ActividadModel> obtenerUsuarios(){        
+        return actividadService.obtenerActividades();
+    }
+
+    @PostMapping()
+    public ActividadModel guardarActividad(@RequestBody ActividadModel actividad){
+        return actividadService.guardarActividad(actividad);
+    }
+
+    @DeleteMapping( path = "/{id}")
+    public ResponseEntity<Object> eliminarPorId(@PathVariable("id") Long id){
+        actividadService.eliminarActividad(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+}
