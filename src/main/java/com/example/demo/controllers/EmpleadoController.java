@@ -15,9 +15,14 @@ public class EmpleadoController {
     @Autowired
     EmpleadoService empleadoService;
 
+    
+    /**
+     * Get encargado de traer la lista de empleados
+     * @return lista de empleados
+     */
     @GetMapping()
     @ResponseBody()
-    public ArrayList<EmpleadoModel> obtenerUsuarios(){
+    public ArrayList<EmpleadoModel> obtenerEmpleados(){
         return empleadoService.obtenerEmpleados();
     } 
 }

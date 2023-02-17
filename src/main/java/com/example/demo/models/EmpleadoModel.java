@@ -10,18 +10,33 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "empleado")
 public class EmpleadoModel {
 
+    /**
+     * identificador de la tabla empleado
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
 
+    /**
+     * nombre del empleado
+     */
     @Column(nullable = false)
     private String nombre;
+    /**
+     * apellido del empleado
+     */
     @Column(nullable = false)
     private String apellido;
+    /**
+     * documento del empleado
+     */
     @Column(nullable = false)
     private String documento;
 
+    /**
+     * relacion de uno a muchos con la tabla actividades
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "empleado")
     private List<ActividadModel> actividades;

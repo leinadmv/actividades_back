@@ -14,6 +14,11 @@ public class EmpleadoService {
     @Autowired
     EmpleadoRepository empleadoRepository;
 
+
+    /**
+     * Servicio que se encarga de obtener una lista de empleados
+     * @return lista de empleados
+     */
     public ArrayList<EmpleadoModel> obtenerEmpleados(){
         return (ArrayList<EmpleadoModel>) empleadoRepository.findAll();
     }
