@@ -9,7 +9,7 @@ import com.example.demo.models.EmpleadoModel;
 import com.example.demo.services.EmpleadoService;
 
 @RestController
-@RequestMapping("/empleados")
+@RequestMapping("/api/empleados")
 public class EmpleadoController {
 
     @Autowired

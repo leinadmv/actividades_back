@@ -1,12 +1,15 @@
 package com.example.demo.models;
 
 import java.util.List;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "empleado")
 public class EmpleadoModel {
 
@@ -33,6 +36,14 @@ public class EmpleadoModel {
      */
     @Column(nullable = false)
     private String documento;
+    /**
+     * nombre de usuario para el logueo
+     */
+    private String usuario;
+    /**
+     * password del usuario
+     */
+    private String password;
 
     /**
      * relacion de uno a muchos con la tabla actividades
@@ -40,46 +51,6 @@ public class EmpleadoModel {
     @JsonIgnore
     @OneToMany(mappedBy = "empleado")
     private List<ActividadModel> actividades;
-
-    public List<ActividadModel> getActividades() {
-        return actividades;
-    }
-
-    public void setActividades(List<ActividadModel> actividades) {
-        this.actividades = actividades;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     
 }

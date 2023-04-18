@@ -12,7 +12,7 @@ import com.example.demo.services.ActividadService;
 
 
 @RestController
-@RequestMapping("/actividades")
+@RequestMapping("/api/actividades")
 public class ActividadController {
 
     @Autowired
